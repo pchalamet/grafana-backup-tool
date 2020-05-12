@@ -1,5 +1,6 @@
 import requests, json, re
 import importlib
+import time
 from commons import log_response, to_python2_and_3_compatible_string
 
 
@@ -101,6 +102,7 @@ def create_folder(payload):
 
 
 def send_grafana_get(url):
+    time.sleep(1)    
     r = requests.get(url, headers=HTTP_GET_HEADERS, verify=VERIFY_SSL)
     if DEBUG:
         log_response(r)
